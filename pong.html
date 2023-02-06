@@ -178,6 +178,17 @@ document.addEventListener('keydown', function(e) {
   else if (e.which === 83) {
     leftPaddle.dy = paddleSpeed;
   }
+  
+  let leftScore = 0;
+  let rightScore = 0;
+  
+  if(ball.x < 0){
+    rightScore++;
+  }
+  
+  if(ball.x > canvas.width){
+    leftScore++;
+  }
 });
 
 // listen to keyboard events to stop the paddle if key is released
