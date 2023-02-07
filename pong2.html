@@ -28,6 +28,8 @@ const maxPaddleY = canvas.height - grid - paddleHeight;
 
 var paddleSpeed = 6;
 var ballSpeed = 5;
+var leftScore = 0;
+var rightScore = 0;
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -77,6 +79,7 @@ function collides(obj1, obj2) {
 function loop() {
   requestAnimationFrame(loop);
   context.clearRect(0,0,canvas.width,canvas.height);
+  context.fillText(leftScore + " || " + rightScore, canvas.width/2, 50);
 
   // move paddles by their velocity
   leftPaddle.y += leftPaddle.dy;
@@ -177,6 +180,14 @@ document.addEventListener('keydown', function(e) {
   // a key
   else if (e.which === 83) {
     leftPaddle.dy = paddleSpeed;
+  }
+  
+  if(ball.x < 0){
+    rightScore++;
+  }
+  
+  if(ball.x > canvas.width){
+    leftScore++;
   }
 });
 
