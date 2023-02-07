@@ -66,6 +66,7 @@ const ball = {
   dy: -ballSpeed
 };
 
+ 
 // check for collision between two objects using axis-aligned bounding box (AABB)
 // @see https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
 function collides(obj1, obj2) {
@@ -182,14 +183,18 @@ document.addEventListener('keydown', function(e) {
   }
   
   if(ball.x < 0){
-    rightScore = rightScore + 1; 
+    rightScore = rightScore + 1;
+    context.font = "20px Georgia";
+    context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
   } 
   if(ball.x > canvas.width){ 
-    leftScore = leftScore + 1; 
+    leftScore = leftScore + 1;
+    context.font = "20px Georgia";
+    context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
   } 
 
-  context.font = "20px Georgia";
-  context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
+  //context.font = "20px Georgia";
+  //context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
 });
 
 // listen to keyboard events to stop the paddle if key is released
