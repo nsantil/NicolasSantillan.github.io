@@ -28,6 +28,8 @@ const maxPaddleY = canvas.height - grid - paddleHeight;
 
 var paddleSpeed = 6;
 var ballSpeed = 5;
+var leftScore = 0;
+var rightScore = 0;
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -178,9 +180,6 @@ document.addEventListener('keydown', function(e) {
   else if (e.which === 83) {
     leftPaddle.dy = paddleSpeed;
   }
-  
-  let leftScore = 0;
-  let rightScore = 0;
   
   if(ball.x < 0){
     rightScore++;
