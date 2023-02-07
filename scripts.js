@@ -168,8 +168,8 @@ document.addEventListener('keydown', function(e) {
     leftScore++;
   }
   
-  context.font = "50px serif";
-  context.fillText(leftScore + "  " + rightScore, canvas.width/2, 20);
+  // context.font = "50px serif";
+  context.fillText(leftScore + "  " + rightScore, canvas.width/2, 30);
   });
 
 // listen to keyboard events to stop the paddle if key is released
