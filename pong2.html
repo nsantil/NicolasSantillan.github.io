@@ -77,7 +77,8 @@ function collides(obj1, obj2) {
 }
 
 function showScore(left, right){
- alert("The score is " + left + " || " + right); 
+  context.font = "20px Georgia";
+  context.fillText(left + "  " + right, canvas.width/2, 50);
 }
   
   
