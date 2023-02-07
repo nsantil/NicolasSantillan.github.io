@@ -167,7 +167,10 @@ document.addEventListener('keydown', function(e) {
   if(ball.x > canvas.width){
     leftScore++;
   }
-});
+  
+  context.font = "50px serif";
+  context.fillText(leftScore + "  " + rightScore, canvas.width/2, 20);
+  });
 
 // listen to keyboard events to stop the paddle if key is released
 document.addEventListener('keyup', function(e) {
@@ -180,8 +183,6 @@ document.addEventListener('keyup', function(e) {
   }
 });
 
-ctx.font = "50px serif";
-context.fillText(leftScore + " || " + rightScore, 10, width/2);
 
 // start the game
 requestAnimationFrame(loop);
