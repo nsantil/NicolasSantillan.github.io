@@ -166,7 +166,7 @@ document.addEventListener('keydown', function(e) {
   }
   
   if(ball.x > canvas.width){
-    document.getElementById("leftScore++;
+    leftScore++;
   }
 });
 
