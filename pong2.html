@@ -188,6 +188,8 @@ document.addEventListener('keydown', function(e) {
     leftScore = leftScore + 1; 
   } 
 
+  context.font = "20px Georgia";
+  context.fillText(leftScore + "  " + rightScore, ccanvas.width/2, 50);
 });
 
 // listen to keyboard events to stop the paddle if key is released
