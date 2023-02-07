@@ -76,6 +76,11 @@ function collides(obj1, obj2) {
          obj1.y + obj1.height > obj2.y;
 }
 
+function showScore(left, right){
+ alert("The score is " + left + " || " + right); 
+}
+  
+  
 // game loop
 function loop() {
   requestAnimationFrame(loop);
@@ -184,13 +189,11 @@ document.addEventListener('keydown', function(e) {
   
   if(ball.x < 0){
     rightScore = rightScore + 1;
-    context.font = "20px Georgia";
-    context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
+    showScore(leftScore, rightScore);
   } 
   if(ball.x > canvas.width){ 
     leftScore = leftScore + 1;
-    context.font = "20px Georgia";
-    context.fillText(leftScore + "  " + rightScore, canvas.width/2, 50);
+    showScore(leftScore, rightScore);
   } 
 
   //context.font = "20px Georgia";
