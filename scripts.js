@@ -53,17 +53,17 @@ function collides(obj1, obj2) {
          obj1.y + obj1.height > obj2.y;
 }
 
-function showScore(winner){
+//function showScore(winner){
   
-	if(winner == 1){
-  		leftScore = leftScore + 1 ;
-  		document.getElementById("playerOne").innerHTML = leftScore;
-  	}
-    if(winner == 2){
-  		rightScore = rightScore + 1;
-  		document.getElementById("playerTwo").innerHTML = rightScore;
-  	}
-}
+	//if(winner == 1){
+  		//leftScore = leftScore + 1 ;
+  		//document.getElementById("playerOne").innerHTML = leftScore;
+  	//}
+    //if(winner == 2){
+  		//rightScore = rightScore + 1;
+  		//document.getElementById("playerTwo").innerHTML = rightScore;
+  	//}
+//}
 
 // game loop
 function loop() {
@@ -114,11 +114,13 @@ function loop() {
     ball.resetting = true;
     
     if(ball.x < 0){
-    	showScore(2);
-  	} 
+    	rightScore = rightScore + 1;
+  	document.getElementById("playerTwo").innerHTML = rightScore;
+  } 
   if(ball.x > canvas.width){ 
-  	  showScore(1);
-  	}
+  	  leftScore = leftScore + 1 ;
+  	document.getElementById("playerOne").innerHTML = leftScore;
+  }
 
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
