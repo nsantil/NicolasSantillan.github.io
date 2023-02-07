@@ -55,8 +55,10 @@ function collides(obj1, obj2) {
 
 // game loop
 function loop() {
+  context.fillText(rightScore + " || " + leftScore, canvas.width/2, 50);
   requestAnimationFrame(loop);
   context.clearRect(0,0,canvas.width,canvas.height);
+  
 
   // move paddles by their velocity
   leftPaddle.y += leftPaddle.dy;
@@ -164,7 +166,7 @@ document.addEventListener('keydown', function(e) {
   }
   
   if(ball.x > canvas.width){
-    leftScore++;
+    document.getElementById("leftScore++;
   }
 });
 
