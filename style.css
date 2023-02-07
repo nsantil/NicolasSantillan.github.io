@@ -1,10 +1,10 @@
-body {
+html, body {
     height: 100%;
     margin: 0;
   }
 
   body {
-    background: red;
+    background: green;
     display: flex;
     align-items: center;
     justify-content: center;
