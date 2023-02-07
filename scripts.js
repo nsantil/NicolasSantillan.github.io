@@ -113,14 +113,14 @@ function loop() {
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
     ball.resetting = true;
     
-    if(ball.x < 0){
-    	rightScore = rightScore + 1;
-  	document.getElementById("playerTwo").innerHTML = rightScore;
-  } 
-  if(ball.x > canvas.width){ 
-  	  leftScore = leftScore + 1 ;
-  	document.getElementById("playerOne").innerHTML = leftScore;
-  }
+    	if(ball.x < 0){
+    		rightScore = rightScore + 1;
+  		document.getElementById("playerTwo").innerHTML = rightScore;
+  	} 
+  	else if(ball.x > canvas.width){ 
+  		leftScore = leftScore + 1 ;
+  		document.getElementById("playerOne").innerHTML = leftScore;
+  	}
 
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
