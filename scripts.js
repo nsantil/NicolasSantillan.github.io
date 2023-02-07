@@ -160,16 +160,16 @@ document.addEventListener('keydown', function(e) {
     leftPaddle.dy = paddleSpeed;
   }
   
-  if(ball.x < 0){
-    rightScore++;
+  if((ball.x < 0) && ball.resetting){
+    rightScore = rightScore + 1;
   }
   
-  if(ball.x > canvas.width){
-    leftScore++;
+  if((ball.x > canvas.width) && ball.resetting){
+    leftScore = leftScore + 1;
   }
   
   // context.font = "50px serif";
-  context.fillText(leftScore + "  " + rightScore, canvas.width/2, 30);
+  context.fillText(leftScore + " " + rightScore, canvas.width/2, 100);
   });
 
 // listen to keyboard events to stop the paddle if key is released
