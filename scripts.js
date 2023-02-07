@@ -179,5 +179,8 @@ document.addEventListener('keyup', function(e) {
   }
 });
 
+ctx.font = "50px serif";
+context.fillText(leftScore + " || " + rightScore, 10, width/2);
+
 // start the game
 requestAnimationFrame(loop);
