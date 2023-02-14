@@ -4,10 +4,12 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
+
 var paddleSpeed = 6;
 var ballSpeed = 5;
 var leftScore = 0;
 var rightScore = 0;
+var gameOver = false;
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -64,6 +66,18 @@ function collides(obj1, obj2) {
   		//document.getElementById("playerTwo").innerHTML = rightScore;
   	//}
 //}
+
+function playAgain() {
+  rightScore = 0;
+  leftScore = 0;
+  alert("Press Key Down to play again!");
+  document.addEventListener("keydown", function(e) {
+    if(e === 40) {
+      requestAnimationFrame(loop);
+    }
+    return true;
+  })
+}
 
 // game loop
 function loop() {
@@ -146,6 +160,16 @@ function loop() {
     ball.x = rightPaddle.x - ball.width;
   }
 
+  leftPaddle.dy = ball.dy;
+
+  if(leftScore > 7 || rightScore > 7) {
+    alert("GAME OVER");
+    gameOver = playAgain();
+    if(gameOver) {
+      cancelAnimationFrame();
+    }
+  }
+
   // draw ball
   context.fillRect(ball.x, ball.y, ball.width, ball.height);
 
@@ -172,15 +196,6 @@ document.addEventListener('keydown', function(e) {
     rightPaddle.dy = paddleSpeed;
   }
 
-  // w key
-  if (e.which === 87) {
-    leftPaddle.dy = -paddleSpeed;
-  }
-  // a key
-  else if (e.which === 83) {
-    leftPaddle.dy = paddleSpeed;
-  }
-  
   if((ball.x < 0) && ball.resetting){
     rightScore = rightScore + 1;
   }
@@ -197,10 +212,6 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('keyup', function(e) {
   if (e.which === 38 || e.which === 40) {
     rightPaddle.dy = 0;
-  }
-
-  if (e.which === 83 || e.which === 87) {
-    leftPaddle.dy = 0;
   }
 });
 
