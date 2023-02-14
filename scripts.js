@@ -4,10 +4,12 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
+
 var paddleSpeed = 6;
 var ballSpeed = 5;
 var leftScore = 0;
 var rightScore = 0;
+var gameOver = false;
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -64,6 +66,18 @@ function collides(obj1, obj2) {
   		//document.getElementById("playerTwo").innerHTML = rightScore;
   	//}
 //}
+
+function playAgain() {
+  rightScore = 0;
+  leftScore = 0;
+  alert("Press Key Down to play again!");
+  document.addEventListener("keydown", function(e) {
+    if(e === 40) {
+      requestAnimationFrame(loop);
+    }
+    return true;
+  })
+}
 
 // game loop
 function loop() {
@@ -147,7 +161,15 @@ function loop() {
   }
 
   leftPaddle.dy = ball.dy;
-  
+
+  if(leftScore > 7 || rightScore > 7) {
+    alert("GAME OVER");
+    gameOver = playAgain();
+    if(gameOver) {
+      cancelAnimationFrame();
+    }
+  }
+
   // draw ball
   context.fillRect(ball.x, ball.y, ball.width, ball.height);
 
