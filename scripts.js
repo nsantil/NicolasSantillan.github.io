@@ -146,6 +146,8 @@ function loop() {
     ball.x = rightPaddle.x - ball.width;
   }
 
+  leftPaddle.dy = ball.dy;
+  
   // draw ball
   context.fillRect(ball.x, ball.y, ball.width, ball.height);
 
@@ -172,15 +174,6 @@ document.addEventListener('keydown', function(e) {
     rightPaddle.dy = paddleSpeed;
   }
 
-  // w key
-  if (e.which === 87) {
-    leftPaddle.dy = -paddleSpeed;
-  }
-  // a key
-  else if (e.which === 83) {
-    leftPaddle.dy = paddleSpeed;
-  }
-  
   if((ball.x < 0) && ball.resetting){
     rightScore = rightScore + 1;
   }
@@ -197,10 +190,6 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('keyup', function(e) {
   if (e.which === 38 || e.which === 40) {
     rightPaddle.dy = 0;
-  }
-
-  if (e.which === 83 || e.which === 87) {
-    leftPaddle.dy = 0;
   }
 });
 
